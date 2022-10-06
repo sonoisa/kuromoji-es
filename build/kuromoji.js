@@ -8135,13 +8135,13 @@ BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
     xhr.send();
     */
     const gunzip = (arraybuffer, callback) => {
-        console.log(arraybuffer)
         const gz = new zlib.Zlib.Gunzip(new Uint8Array(arraybuffer));
         const typed_array = gz.decompress();
         callback(null, typed_array.buffer);
     };
     try {
-        fetch(url).then(r => r.arrayBuffer().then(a => gunzip(a, callback))).catch(err => callback(err, null));
+        console.log("fetch", url);
+        fetch(url).then(r => r.arrayBuffer()).then(a => gunzip(a, callback)).catch(err => callback(err, null));
     } catch (e) {
         Deno.readFile(url).then(a => gunzip(a, callback)).catch(err => callback(err, null));
     }
