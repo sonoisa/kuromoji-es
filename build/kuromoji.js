@@ -8135,16 +8135,12 @@ BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
     xhr.send();
     */
     const gunzip = (arraybuffer, callback) => {
-        var gz = new zlib.Zlib.Gunzip(new Uint8Array(arraybuffer));
-        var typed_array = gz.decompress();
+        console.log(arraybuffer)
+        const gz = new zlib.Zlib.Gunzip(new Uint8Array(arraybuffer));
+        const typed_array = gz.decompress();
         callback(null, typed_array.buffer);
     };
     try {
-        console.log("o", url)
-        if (url.startsWith("https://code4fukui.github.io/code4fukui.github.io/")) {
-            url = "https://code4fukui.github.io/" + url.substring("https://code4fukui.github.io/code4fukui.github.io/".length);
-        }
-        console.log("d", url)
         fetch(url).then(r => r.arrayBuffer().then(a => gunzip(a, callback))).catch(err => callback(err, null));
     } catch (e) {
         Deno.readFile(url).then(a => gunzip(a, callback)).catch(err => callback(err, null));
