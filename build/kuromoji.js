@@ -8140,6 +8140,11 @@ BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
         callback(null, typed_array.buffer);
     };
     try {
+        console.log("o", url)
+        if (url.startsWith("https://code4fukui.github.io/code4fukui.github.io/")) {
+            url = "https://code4fukui.github.io/" + url.substring("https://code4fukui.github.io/code4fukui.github.io/".length);
+        }
+        console.log("d", url)
         fetch(url).then(r => r.arrayBuffer().then(a => gunzip(a, callback))).catch(err => callback(err, null));
     } catch (e) {
         Deno.readFile(url).then(a => gunzip(a, callback)).catch(err => callback(err, null));
