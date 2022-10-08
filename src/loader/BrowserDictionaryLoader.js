@@ -38,11 +38,11 @@ BrowserDictionaryLoader.prototype.loadArrayBuffer = async function (url) {
     try {
         const a = new Uint8Array(await (await fetch(url)).arrayBuffer());
         const res = gunzip(a);
-        return res;
+        return res.buffer;
     } catch (e) {
         const a = new Uint8Array(await Deno.readFile(url));
         const res = gunzip(a);
-        return res;
+        return res.buffer;
     }
 };
 
