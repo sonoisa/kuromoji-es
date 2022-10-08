@@ -15,10 +15,8 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var CharacterDefinition = require("../CharacterDefinition");
-var InvokeDefinitionMap = require("../InvokeDefinitionMap");
+import { CharacterDefinition } from "../CharacterDefinition.js";
+import { InvokeDefinitionMap } from "../InvokeDefinitionMap.js";
 
 var CATEGORY_DEF_PATTERN = /^(\w+)\s+(\d)\s+(\d)\s+(\d)/;
 var CATEGORY_MAPPING_PATTERN = /^(0x[0-9A-F]{4})(?:\s+([^#\s]+))(?:\s+([^#\s]+))*/;
@@ -28,7 +26,7 @@ var RANGE_CATEGORY_MAPPING_PATTERN = /^(0x[0-9A-F]{4})\.\.(0x[0-9A-F]{4})(?:\s+(
  * CharacterDefinitionBuilder
  * @constructor
  */
-function CharacterDefinitionBuilder() {
+export function CharacterDefinitionBuilder() {
     this.char_def = new CharacterDefinition();
     this.char_def.invoke_definition_map = new InvokeDefinitionMap();
     this.character_category_definition = [];
@@ -64,5 +62,3 @@ CharacterDefinitionBuilder.prototype.build = function () {
     this.char_def.initCategoryMappings(this.category_mapping);
     return this.char_def;
 };
-
-module.exports = CharacterDefinitionBuilder;

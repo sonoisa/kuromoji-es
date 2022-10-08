@@ -15,14 +15,12 @@
  * limitations under the License.
  */
 
-"use strict";
-
 /**
  * String wrapper for UTF-16 surrogate pair (4 bytes)
  * @param {string} str String to wrap
  * @constructor
  */
-function SurrogateAwareString(str) {
+export function SurrogateAwareString(str) {
     this.str = str;
     this.index_mapping = [];
 
@@ -87,5 +85,3 @@ SurrogateAwareString.isSurrogatePair = function (ch) {
         return false;
     }
 };
-
-module.exports = SurrogateAwareString;

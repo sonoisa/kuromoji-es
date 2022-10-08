@@ -15,15 +15,13 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var ConnectionCosts = require("../ConnectionCosts");
+import { ConnectionCosts } from "../ConnectionCosts.js";
 
 /**
  * Builder class for constructing ConnectionCosts object
  * @constructor
  */
-function ConnectionCostsBuilder() {
+export function ConnectionCostsBuilder() {
     this.lines = 0;
     this.connection_cost = null;
 }
@@ -66,5 +64,3 @@ ConnectionCostsBuilder.prototype.putLine = function (line) {
 ConnectionCostsBuilder.prototype.build = function () {
     return this.connection_cost;
 };
-
-module.exports = ConnectionCostsBuilder;

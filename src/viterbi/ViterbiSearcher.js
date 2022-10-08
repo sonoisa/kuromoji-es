@@ -15,14 +15,13 @@
  * limitations under the License.
  */
 
-"use strict";
 
 /**
  * ViterbiSearcher is for searching best Viterbi path
  * @param {ConnectionCosts} connection_costs Connection costs matrix
  * @constructor
  */
-function ViterbiSearcher(connection_costs) {
+export function ViterbiSearcher(connection_costs) {
     this.connection_costs = connection_costs;
 }
 
@@ -98,5 +97,3 @@ ViterbiSearcher.prototype.backward = function (lattice) {
 
     return shortest_path.reverse();
 };
-
-module.exports = ViterbiSearcher;

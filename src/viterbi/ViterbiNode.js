@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-"use strict";
 
 /**
  * ViterbiNode is a node of ViterbiLattice
@@ -29,7 +28,7 @@
  * @param {string} surface_form Surface form of this word
  * @constructor
  */
-function ViterbiNode(node_name, node_cost, start_pos, length, type, left_id, right_id, surface_form) {
+export function ViterbiNode(node_name, node_cost, start_pos, length, type, left_id, right_id, surface_form) {
     this.name = node_name;
     this.cost = node_cost;
     this.start_pos = start_pos;
@@ -45,5 +44,3 @@ function ViterbiNode(node_name, node_cost, start_pos, length, type, left_id, rig
     }
     this.type = type;
 }
-
-module.exports = ViterbiNode;

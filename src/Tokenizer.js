@@ -15,11 +15,9 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var ViterbiBuilder = require("./viterbi/ViterbiBuilder");
-var ViterbiSearcher = require("./viterbi/ViterbiSearcher");
-var IpadicFormatter = require("./util/IpadicFormatter");
+import { ViterbiBuilder } from "./viterbi/ViterbiBuilder.js";
+import { ViterbiSearcher } from "./viterbi/ViterbiSearcher.js";
+import { IpadicFormatter } from "./util/IpadicFormatter.js";
 
 var PUNCTUATION = /、|。/;
 
@@ -28,7 +26,7 @@ var PUNCTUATION = /、|。/;
  * @param {DynamicDictionaries} dic Dictionaries used by this tokenizer
  * @constructor
  */
-function Tokenizer(dic) {
+export function Tokenizer(dic) {
     this.token_info_dictionary = dic.token_info_dictionary;
     this.unknown_dictionary = dic.unknown_dictionary;
     this.viterbi_builder = new ViterbiBuilder(dic);
@@ -125,5 +123,3 @@ Tokenizer.prototype.tokenizeForSentence = function (sentence, tokens) {
 Tokenizer.prototype.getLattice = function (text) {
     return this.viterbi_builder.build(text);
 };
-
-module.exports = Tokenizer;

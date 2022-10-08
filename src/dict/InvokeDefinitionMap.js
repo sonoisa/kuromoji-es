@@ -15,16 +15,14 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var ByteBuffer = require("../util/ByteBuffer");
-var CharacterClass = require("./CharacterClass");
+import { ByteBuffer } from "../util/ByteBuffer.js";
+import { CharacterClass } from "./CharacterClass.js";
 
 /**
  * InvokeDefinitionMap represents invoke definition a part of char.def
  * @constructor
  */
-function InvokeDefinitionMap() {
+export function InvokeDefinitionMap() {
     this.map = [];
     this.lookup_table = {};  // Just for building dictionary
 }
@@ -106,5 +104,3 @@ InvokeDefinitionMap.prototype.toBuffer = function () {
     buffer.shrink();
     return buffer.buffer;
 };
-
-module.exports = InvokeDefinitionMap;

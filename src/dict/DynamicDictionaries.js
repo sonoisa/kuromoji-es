@@ -15,12 +15,10 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var doublearray = require("doublearray");
-var TokenInfoDictionary = require("./TokenInfoDictionary");
-var ConnectionCosts = require("./ConnectionCosts");
-var UnknownDictionary = require("./UnknownDictionary");
+import { doublearray } from "https://code4fukui.github.io/doublearray-es/doublearray.js";
+import { TokenInfoDictionary } from "./TokenInfoDictionary.js";
+import { ConnectionCosts } from "./ConnectionCosts.js";
+import { UnknownDictionary } from "./UnknownDictionary.js";
 
 /**
  * Dictionaries container for Tokenizer
@@ -30,7 +28,7 @@ var UnknownDictionary = require("./UnknownDictionary");
  * @param {UnknownDictionary} unknown_dictionary
  * @constructor
  */
-function DynamicDictionaries(trie, token_info_dictionary, connection_costs, unknown_dictionary) {
+export function DynamicDictionaries(trie, token_info_dictionary, connection_costs, unknown_dictionary) {
     if (trie != null) {
         this.trie = trie;
     } else {
@@ -78,5 +76,3 @@ DynamicDictionaries.prototype.loadUnknownDictionaries = function (unk_buffer, un
     this.unknown_dictionary.loadUnknownDictionaries(unk_buffer, unk_pos_buffer, unk_map_buffer, cat_map_buffer, compat_cat_map_buffer, invoke_def_buffer);
     return this;
 };
-
-module.exports = DynamicDictionaries;

@@ -15,15 +15,13 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var ByteBuffer = require("../util/ByteBuffer");
+import { ByteBuffer } from "../util/ByteBuffer.js";
 
 /**
  * TokenInfoDictionary
  * @constructor
  */
-function TokenInfoDictionary() {
+export function TokenInfoDictionary() {
     this.dictionary = new ByteBuffer(10 * 1024 * 1024);
     this.target_map = {};  // trie_id (of surface form) -> token_info_id (of token)
     this.pos_buffer = new ByteBuffer(10 * 1024 * 1024);
@@ -148,5 +146,3 @@ TokenInfoDictionary.prototype.getFeatures = function (token_info_id_str) {
     var pos_id = this.dictionary.getInt(token_info_id + 6);
     return this.pos_buffer.getString(pos_id);
 };
-
-module.exports = TokenInfoDictionary;

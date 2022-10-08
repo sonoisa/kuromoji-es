@@ -1,4 +1,5 @@
-import { kuromoji as _kuromoji } from "./build/kuromoji.js";
+//import { kuromoji as _kuromoji } from "./build/kuromoji.js";
+import { kuromoji as _kuromoji } from "./src/kuromoji.js";
 
 const DIC_URL = "https://code4fukui.github.io/kuromoji-es/dict/";
 

@@ -15,18 +15,16 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var fs = require("fs");
-var node_zlib = require("zlib");
-var DictionaryLoader = require("./DictionaryLoader");
+//import { fs } from "./fs.js";
+//var node_zlib = require("zlib");
+import { DictionaryLoader } from "./DictionaryLoader.js";
 
 /**
  * NodeDictionaryLoader inherits DictionaryLoader
  * @param {string} dic_path Dictionary path
  * @constructor
  */
-function NodeDictionaryLoader(dic_path) {
+export function NodeDictionaryLoader(dic_path) {
     DictionaryLoader.apply(this, [ dic_path ]);
 }
 
@@ -57,5 +55,3 @@ NodeDictionaryLoader.prototype.loadArrayBuffer = function (file, callback) {
  * @param {Object} err Error object
  * @param {Uint8Array} buffer Loaded buffer
  */
-
-module.exports = NodeDictionaryLoader;

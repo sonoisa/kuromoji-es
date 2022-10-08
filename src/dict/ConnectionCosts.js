@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-"use strict";
-
 /**
  * Connection costs matrix from cc.dat file.
  * 2 dimension matrix [forward_id][backward_id] -> cost
@@ -24,7 +22,7 @@
  * @param {number} forward_dimension
  * @param {number} backward_dimension
  */
-function ConnectionCosts(forward_dimension, backward_dimension) {
+export function ConnectionCosts(forward_dimension, backward_dimension) {
     this.forward_dimension = forward_dimension;
     this.backward_dimension = backward_dimension;
 
@@ -55,5 +53,3 @@ ConnectionCosts.prototype.loadConnectionCosts = function (connection_costs_buffe
     this.backward_dimension = connection_costs_buffer[1];
     this.buffer = connection_costs_buffer;
 };
-
-module.exports = ConnectionCosts;
