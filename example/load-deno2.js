@@ -18,5 +18,5 @@
 import { kuromoji } from "../kuromoji.js";
 
 const tokenizer = await kuromoji.createTokenizer();
-const path = tokenizer.tokenize("私は家にいる");
+const path = tokenizer.tokenize("すもももももももものうち");
 console.log(path);
