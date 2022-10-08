@@ -15,14 +15,12 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var doublearray = require("doublearray");
-var DynamicDictionaries = require("../DynamicDictionaries");
-var TokenInfoDictionary = require("../TokenInfoDictionary");
-var ConnectionCostsBuilder = require("./ConnectionCostsBuilder");
-var CharacterDefinitionBuilder = require("./CharacterDefinitionBuilder");
-var UnknownDictionary = require("../UnknownDictionary");
+import { doublearray } from "https://code4fukui.github.io/doublearray-es/doublearray.js";
+import { DynamicDictionaries } from "../DynamicDictionaries.js";
+import { TokenInfoDictionary } from "../TokenInfoDictionary.js";
+import { ConnectionCostsBuilder } from "./ConnectionCostsBuilder.js";
+import { CharacterDefinitionBuilder } from "./CharacterDefinitionBuilder.js";
+import { UnknownDictionary } from "../UnknownDictionary.js";
 
 /**
  * Build dictionaries (token info, connection costs)
@@ -36,7 +34,7 @@ var UnknownDictionary = require("../UnknownDictionary");
  * tid_map.dat: targetMap
  * tid_pos.dat: posList (part of speech)
  */
-function DictionaryBuilder() {
+export function DictionaryBuilder() {
     // Array of entries, each entry in Mecab form
     // (0: surface form, 1: left id, 2: right id, 3: word cost, 4: part of speech id, 5-: other features)
     this.tid_entries = [];
@@ -154,5 +152,3 @@ DictionaryBuilder.prototype.buildDoubleArray = function () {
     var builder = doublearray.builder(1024 * 1024);
     return builder.build(words);
 };
-
-module.exports = DictionaryBuilder;

@@ -15,17 +15,15 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var TokenInfoDictionary = require("./TokenInfoDictionary");
-var CharacterDefinition = require("./CharacterDefinition");
-var ByteBuffer = require("../util/ByteBuffer");
+import { TokenInfoDictionary } from "./TokenInfoDictionary.js";
+import { CharacterDefinition } from "./CharacterDefinition.js";
+import { ByteBuffer } from "../util/ByteBuffer.js";
 
 /**
  * UnknownDictionary
  * @constructor
  */
-function UnknownDictionary() {
+export function UnknownDictionary() {
     this.dictionary = new ByteBuffer(10 * 1024 * 1024);
     this.target_map = {};  // class_id (of CharacterClass) -> token_info_id (of unknown class)
     this.pos_buffer = new ByteBuffer(10 * 1024 * 1024);
@@ -54,5 +52,3 @@ UnknownDictionary.prototype.loadUnknownDictionaries = function (unk_buffer, unk_
     this.loadTargetMap(unk_map_buffer);
     this.character_definition = CharacterDefinition.load(cat_map_buffer, compat_cat_map_buffer, invoke_def_buffer);
 };
-
-module.exports = UnknownDictionary;

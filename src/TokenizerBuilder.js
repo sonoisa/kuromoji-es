@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var Tokenizer = require("./Tokenizer");
-var DictionaryLoader = require("./loader/NodeDictionaryLoader");
+import { Tokenizer } from "./Tokenizer.js";
+//import { DictionaryLoader } from "./loader/NodeDictionaryLoader.js";
+import { BrowserDictionaryLoader as DictionaryLoader } from "./loader/BrowserDictionaryLoader.js";
+//import { DictionaryLoader } from "./loader/DictionaryLoader.js";
 
 /**
  * TokenizerBuilder create Tokenizer instance.
@@ -26,7 +26,7 @@ var DictionaryLoader = require("./loader/NodeDictionaryLoader");
  * @param {string} option.dicPath Dictionary directory path (or URL using in browser)
  * @constructor
  */
-function TokenizerBuilder(option) {
+export function TokenizerBuilder(option) {
     if (option.dicPath == null) {
         this.dic_path = "dict/";
     } else {
@@ -51,5 +51,3 @@ TokenizerBuilder.prototype.build = function (callback) {
  * @param {Object} err Error object
  * @param {Tokenizer} tokenizer Prepared Tokenizer
  */
-
-module.exports = TokenizerBuilder;

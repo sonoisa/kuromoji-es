@@ -15,13 +15,11 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var TokenizerBuilder = require("./TokenizerBuilder");
-var DictionaryBuilder = require("./dict/builder/DictionaryBuilder");
+import { TokenizerBuilder } from "./TokenizerBuilder.js";
+import { DictionaryBuilder } from "./dict/builder/DictionaryBuilder.js";
 
 // Public methods
-var kuromoji = {
+export const kuromoji = {
     builder: function (option) {
         return new TokenizerBuilder(option);
     },
@@ -29,5 +27,3 @@ var kuromoji = {
         return new DictionaryBuilder();
     }
 };
-
-module.exports = kuromoji;

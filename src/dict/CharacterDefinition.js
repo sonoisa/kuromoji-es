@@ -15,11 +15,9 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var InvokeDefinitionMap = require("./InvokeDefinitionMap");
-var CharacterClass = require("./CharacterClass");
-var SurrogateAwareString = require("../util/SurrogateAwareString");
+import { InvokeDefinitionMap } from "./InvokeDefinitionMap.js";
+import { CharacterClass } from "./CharacterClass.js";
+import { SurrogateAwareString } from "../util/SurrogateAwareString.js";
 
 var DEFAULT_CATEGORY = "DEFAULT";
 
@@ -28,7 +26,7 @@ var DEFAULT_CATEGORY = "DEFAULT";
  * defines behavior of unknown word processing
  * @constructor
  */
-function CharacterDefinition() {
+export function CharacterDefinition() {
     this.character_category_map = new Uint8Array(65536);  // for all UCS2 code points
     this.compatible_category_map = new Uint32Array(65536);  // for all UCS2 code points
     this.invoke_definition_map = null;
@@ -201,5 +199,3 @@ CharacterDefinition.prototype.lookup = function (ch) {
 
     return this.invoke_definition_map.getCharacterClass(class_id);
 };
-
-module.exports = CharacterDefinition;

@@ -15,17 +15,15 @@
  * limitations under the License.
  */
 
-"use strict";
-
-var zlib = require("zlibjs/bin/gunzip.min.js");
-var DictionaryLoader = require("./DictionaryLoader");
+import { gunzip } from "https://taisukef.github.io/zlib.js/es/gunzip.js";
+import { DictionaryLoader } from "./DictionaryLoader.js";
 
 /**
  * BrowserDictionaryLoader inherits DictionaryLoader, using jQuery XHR for download
  * @param {string} dic_path Dictionary path
  * @constructor
  */
-function BrowserDictionaryLoader(dic_path) {
+export function BrowserDictionaryLoader(dic_path) {
     DictionaryLoader.apply(this, [dic_path]);
 }
 
@@ -36,25 +34,16 @@ BrowserDictionaryLoader.prototype = Object.create(DictionaryLoader.prototype);
  * @param {string} url Dictionary URL
  * @param {BrowserDictionaryLoader~onLoad} callback Callback function
  */
-BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.responseType = "arraybuffer";
-    xhr.onload = function () {
-        if (this.status > 0 && this.status !== 200) {
-            callback(xhr.statusText, null);
-            return;
-        }
-        var arraybuffer = this.response;
-
-        var gz = new zlib.Zlib.Gunzip(new Uint8Array(arraybuffer));
-        var typed_array = gz.decompress();
-        callback(null, typed_array.buffer);
-    };
-    xhr.onerror = function (err) {
-        callback(err, null);
-    };
-    xhr.send();
+BrowserDictionaryLoader.prototype.loadArrayBuffer = async function (url) {
+    try {
+        const a = new Uint8Array(await (await fetch(url)).arrayBuffer());
+        const res = gunzip(a);
+        return res.buffer;
+    } catch (e) {
+        const a = new Uint8Array(await Deno.readFile(url));
+        const res = gunzip(a);
+        return res.buffer;
+    }
 };
 
 /**
@@ -63,5 +52,3 @@ BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
  * @param {Object} err Error object
  * @param {Uint8Array} buffer Loaded buffer
  */
-
-module.exports = BrowserDictionaryLoader;

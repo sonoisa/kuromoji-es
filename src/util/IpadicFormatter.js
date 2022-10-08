@@ -15,13 +15,11 @@
  * limitations under the License.
  */
 
-"use strict";
-
 /**
  * Mappings between IPADIC dictionary features and tokenized results
  * @constructor
  */
-function IpadicFormatter() {
+export function IpadicFormatter() {
 }
 
 IpadicFormatter.prototype.formatEntry = function (word_id, position, type, features) {
@@ -63,5 +61,3 @@ IpadicFormatter.prototype.formatUnknownEntry = function (word_id, position, type
 
     return token;
 };
-
-module.exports = IpadicFormatter;

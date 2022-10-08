@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-"use strict";
-
 /**
  * Convert String (UTF-16) to UTF-8 ArrayBuffer
  *
@@ -137,7 +135,7 @@ var utf8BytesToString = function (bytes) {
  * @param {(number|Uint8Array)} arg Initial size of this buffer (number), or buffer to set (Uint8Array)
  * @constructor
  */
-function ByteBuffer(arg) {
+export function ByteBuffer(arg) {
     var initial_size;
     if (arg == null) {
         initial_size = 1024 * 1024;
@@ -285,5 +283,3 @@ ByteBuffer.prototype.getString = function (index) {
     this.position = index;
     return utf8BytesToString(buf);
 };
-
-module.exports = ByteBuffer;

@@ -15,7 +15,8 @@
  * limitations under the License.
  */
 
-import { kuromoji } from "../build/kuromoji.js";
+//import { kuromoji } from "../build/kuromoji.js";
+import { kuromoji } from "../src/kuromoji.js";
 const DIC_DIR = "../dict/";
 
 // Load dictionaries from file, and prepare tokenizer
