@@ -32,7 +32,6 @@ BrowserDictionaryLoader.prototype = Object.create(DictionaryLoader.prototype);
 /**
  * Utility function to load gzipped dictionary
  * @param {string} url Dictionary URL
- * @param {BrowserDictionaryLoader~onLoad} callback Callback function
  */
 BrowserDictionaryLoader.prototype.loadArrayBuffer = async function (url) {
     try {

@@ -12,13 +12,11 @@ Directory
 
 Directory tree is as follows:
 
-    build/
-      kuromoji.js -- JavaScript file for browser (Browserified)
     demo/         -- Demo
     dict/         -- Dictionaries for tokenizer (gzipped)
-    example/      -- Examples to use in Node.js
+    example/      -- Examples to use in Deno and Browsers
     src/          -- JavaScript source
-    test/         -- Unit test
+    test/         -- Unit test (todo: remake for ES module version)
 
 
 Usage
