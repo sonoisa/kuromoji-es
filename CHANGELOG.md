@@ -1,6 +1,8 @@
 <a name="0.1.3"></a>
 ## ES module version (2022-10-08)
 
+* change to ES module for Deno and Browsers
+
 ### Breaking Changes
 
 
