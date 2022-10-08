@@ -1,3 +1,9 @@
+<a name="0.1.3"></a>
+## ES module version (2022-10-08)
+
+### Breaking Changes
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/takuyaa/kuromoji.js/compare/0.1.1...0.1.2) (2018-03-20)
 
