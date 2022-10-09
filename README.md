@@ -12,7 +12,6 @@ Directory
 
 Directory tree is as follows:
 
-    demo/         -- Demo
     dict/         -- Dictionaries for tokenizer (gzipped)
     example/      -- Examples to use in Deno and Browsers
     src/          -- JavaScript source
