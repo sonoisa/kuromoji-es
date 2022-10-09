@@ -44,10 +44,3 @@ BrowserDictionaryLoader.prototype.loadArrayBuffer = async function (url) {
         return res.buffer;
     }
 };
-
-/**
- * Callback
- * @callback BrowserDictionaryLoader~onLoad
- * @param {Object} err Error object
- * @param {Uint8Array} buffer Loaded buffer
- */
