@@ -1,6 +1,6 @@
 import { kuromoji as _kuromoji } from "./src/kuromoji.js";
 
-const DIC_URL = "https://code4fukui.github.io/kuromoji-es/dict/";
+const DIC_URL = "https://cdn.jsdelivr.net/gh/sonoisa/kuromoji-es@es/dict/";
 
 export const kuromoji = {
   createTokenizer: async () => {
